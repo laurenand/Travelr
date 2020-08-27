@@ -1,7 +1,15 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in plant_advisor.gemspec
-gemspec
+require 'net/http'
+require 'open-uri'
+require 'json'
 
 
-gem 'solargraph', group: :development
+
+gem 'pry'
+gem 'colorize'
+gem 'httparty'
+
+
+
+
