@@ -1,17 +1,17 @@
 require 'pry'
 
 class API 
-    
-  def self.valid_country?(capital_cities)
-    url = "https://restcountries.eu/rest/v2/capital/#{capital_cities}"
+     
+  def self.valid_country?(capital_city)
+    url = "https://restcountries.eu/rest/v2/capital/#{capital_city}"
     response = HTTParty.get(url, follow_redirects: true) # sends request for data to url
     if response.ok?
         response
     end
-end
-
-def self.get_country_by_capital_cities(capital_cities)
-    response = self.valid_country?(capital_cities)
+  end
+#binding.pry
+  def self.get_country_by_capital_cities(capital_city)
+    response = self.valid_country?(capital_city)
     if response
         response.map do |hash|
             country_data = {}

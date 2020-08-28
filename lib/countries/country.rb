@@ -1,3 +1,5 @@
+require 'pry'
+
 class Country
     attr_accessor :name, :region, :population, :capital, :flag_link#, :borders, :languages
     @@all = []
@@ -29,10 +31,16 @@ class Country
         end
     end
 
+    def self.find_or_create_by_name(name)
+        countries = self.all.find {|country| country.name == name}
+        if country.nil?
+          country
+        else
+          self.new(name)
+        end
+    end
+
     def self.clear_countries
         self.all.clear
     end
 end
-
-# add a find_or_create_by_name method so we don't send multiple requests
-# for the same country
