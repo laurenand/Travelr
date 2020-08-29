@@ -17,7 +17,10 @@ To run this application in your local environment, follow these steps:
 ```
 Welcome!
 Looking for a country to travel to?
-```
+To get started enter a country's capital city!
+To exit, enter 'exit' at any time.
+# Enter a capital city or exit
+```  
 
 ## Contributing
 
