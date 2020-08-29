@@ -1,8 +1,7 @@
-# PlantAdvisor
+# Travelr
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/plant_advisor`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Travelr is a command line interface that allows the user to receive informtaion of a country by searching the capital cities.
+The app starts with a greeting and provides a description of how to app runs. When the user inputs the capital city name that they are looking for, the app will return detailed information about the country - including the name, population, region, capital, and a link to see the country's flag. When the user types in 'exit', the app will close.
 
 ## Installation
 
