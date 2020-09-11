@@ -2,8 +2,10 @@ require 'pry'
 
 class Country
     attr_accessor :name, :region, :population, :capital, :flag_link
+    #sets and gets instance variables
     @@all = []
 
+    #what is called on with each new run
     def initialize(hash)
         @name = hash[:name][0]
         @region = hash[:region]
@@ -13,6 +15,7 @@ class Country
         self.class.all << self unless self.class.all.include?(self)
     end
 
+    #holds class variable which stores all country data
     def self.all
         @@all
     end
@@ -29,15 +32,17 @@ class Country
         end
     end
 
+    #will find a valid country if one does not already exist and will create one if that country does not exist
     def self.find_or_create_by_name(name)
         countries = self.all.find {|country| country.name == name}
-        if country.nil?
+        if countries.nil?
           country
         else
           self.new(name)
         end
     end
 
+    #clears data 
     def self.clear_countries
         self.all.clear
     end

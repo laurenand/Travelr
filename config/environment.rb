@@ -9,7 +9,7 @@ require 'colorize'
 require 'httparty'
 
 # .rb at the end of files are not required in ruby files
-# one dot means "look for a filder in the current folder."
+# one dot means "look for a folder in the current folder."
 # two dots mean "look in a folder above the current folder"
 require_relative '../lib/countries/api.rb'
 require_relative '../lib/countries/cli.rb'
