@@ -6,13 +6,14 @@ class Country
     @@all = []
 
     #what is called on with each new run
-    def initialize(hash)
+    def initialize(hash) #.new
         @name = hash[:name][0]
         @region = hash[:region]
         @population = hash[:population]
         @capital = hash[:capital]
         @flag_link = hash[:flag_link]
-        self.class.all << self unless self.class.all.include?(self)
+        @@all << self
+        #binding.pry
     end
 
     #holds class variable which stores all country data
@@ -36,7 +37,7 @@ class Country
     def self.find_or_create_by_name(name)
         countries = self.all.find {|country| country.name == name}
         if countries.nil?
-          country
+          countires
         else
           self.new(name)
         end

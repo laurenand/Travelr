@@ -1,6 +1,3 @@
-#!/usr/bin/env ruby
-require 'pry'
-
 class CLI
    
     def run 
@@ -18,14 +15,17 @@ class CLI
 
         unless capital_city == 'exit'
             if API.valid_country?(capital_city.to_s)
+                #binding.pry
                 countries = API.get_country_by_capital_cities(capital_city)
                 #the plurality is just because some capital city names actually belong to more than one country
                 #countries.map { |country| country[:name] }
                 puts ""
                 puts "🌎 This capital city returns:".green
-                Country.list_countries(countries).each_with_index do |country, index|
+                Country.all.each_with_index do |country, index|
                     puts "   #{index += 1}. #{country}".green
+                   #binding.pry 
                 end
+                
                 self.get_country(capital_city)
             else
                 puts ""
