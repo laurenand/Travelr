@@ -22,8 +22,9 @@ class CLI
                 puts ""
                 puts "🌎 This capital city returns:".green
                 Country.all.each_with_index do |country, index|
-                    puts "   #{index += 1}. #{country}".green
-                   #binding.pry 
+                    #binding.pry
+                    puts "   #{index += 1}. #{country.name}".green
+                    
                 end
                 
                 self.get_country(capital_city)
@@ -37,8 +38,8 @@ class CLI
     end
 
     def self.get_country(capital_city)
-        #
-        countries_data = API.get_country_by_capital_cities(capital_city.to_s) # returns an array of nested country hashes
+        #binding.pry
+        #countries_data = API.get_country_by_capital_cities(capital_city.to_s) # returns an array of nested country hashes
 
         puts ""
         puts "Please enter the number you would like to see.".blue
@@ -47,17 +48,23 @@ class CLI
 
         unless input == 'exit'
             input = input.to_i
-            if (1..countries_data.length).include?(input)
-                new_country = Country.new(countries_data[input.to_i - 1])
+            if input
+                new_countries = []
+                Country.all.each do |country|
+                    if country.capital.downcase == capital_city.downcase 
+                        new_countries << country
+                    end
+                end 
+                #binding.pry
                     # Country.new(countries_data[input.to_i - 1])
                     # passes argument into Country, creating a new instance
                     # this argument returns a hash of information from the countries_data array about the selected country
                 puts ""
                 puts ""
-                puts "🌏 You chose #{new_country.name}!".blue
-                puts "#{new_country.name} has a population of #{new_country.population}.".blue
-                puts "It is located in the region of #{new_country.region}, and its capital is #{new_country.capital}.".blue
-                puts "View a photo of #{new_country.name}'s country flag at 📷#{new_country.flag_link}.".blue
+                puts "🌏 You chose #{new_countries[input-1].name}!".blue
+                puts "#{new_countries[input-1].name} has a population of #{new_countries[input-1].population}.".blue
+                puts "It is located in the region of #{new_countries[input-1].region}, and its capital is #{new_countries[input-1].capital}.".blue
+                puts "View a photo of #{new_countries[input-1].name}'s country flag at 📷#{new_countries[input-1].flag_link}.".blue
                 puts ""
                 
                 self.view_my_collection
