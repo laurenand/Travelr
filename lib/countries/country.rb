@@ -27,11 +27,11 @@ class Country
     end
 
     # while this method lists all results of the API search
-    def self.list_countries(countries_hash)
-        countries_hash.map do |country|
-            country[:name][0]
-        end
-    end
+    #def self.list_countries(countries_hash)
+        #countries_hash.map do |country|
+         #   country[:name][0]
+        #end
+    #end
 
     #will find a valid country if one does not already exist and will create one if that country does not exist
     def self.find_or_create_by_name(name)
